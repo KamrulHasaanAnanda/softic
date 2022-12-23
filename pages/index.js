@@ -14,20 +14,21 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const mergeData = useSelector((state) => state.staticBar.data);
+  const loading = useSelector((state) => state.staticBar.loading);
+
   const dispatch = useDispatch();
 
-  console.log("data", mergeData);
+  // console.log("loading", loading);
 
-  const [loading, setloading] = useState(false);
 
   useEffect(() => {
     // getValues();
-    setloading(true);
-    dispatch(setMergedData);
+    // setloading(true);
+    dispatch(setMergedData());
   }, [dispatch]);
 
-  let l;
-  // console.log("data", data);
+  // let l;
+  // console.log("mergeData", mergeData);
   return (
     <>
       <Head>
@@ -37,17 +38,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="main">
-        {!loading && <Loader />}
+        {loading && <Loader />}
         <Typography.Title level={2} style={{
           color: "white",
           textAlign: "center"
         }}>Blogs</Typography.Title>
         <div className="main-cards">
           <Row gutter={[16,16]}>
-          {loading &&
+          {!loading &&
             mergeData?.length > 0 &&
-            mergeData.map((item, index) => <Col sm={24} xs={24} md={8} lg={8} xl={8} key={index}>
-            <Cards  item={item}/>
+            mergeData.map((item, index) => <Col sm={12} xs={24} md={8} lg={8} xl={8} key={index}>
+            <Cards  item={item} comments={item?.comment?.length}/>
             </Col>
             )}
           </Row>

@@ -31,9 +31,56 @@ img {
   padding: 20px 20px;
 
 }
+.card-item{
+  border-radius: 10px;
+  background: white;
+  min-height: 550px;
+}
 /* .main-cards{
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
 } */
+
+.author{
+margin: 20px 0;
+display: flex;
+gap: 10px;
+align-items: center;
+}
+.author-texts h4{
+  font-size: 12px;
+  margin: 0;
+}
+.title{
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.body span{
+  font-size: 14px;
+  color: rgb(0 0 0 / 53%);
+}
+
+.title h4{
+  color: black;
+    font-size: 16px;
+    font-weight: 800;
+    font-family: sans-serif;
+}
+
+.title h5{
+  color: white;
+    font-size: 12px;
+    font-family: sans-serif;
+}
+
+.single-card{
+  
+  display: flex;
+  justify-content: center;
+  margin: 30px 0px;
+}

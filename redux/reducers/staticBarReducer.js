@@ -1,7 +1,8 @@
-import { SET_DATA } from "../types";
+import { SET_DATA, SET_LOADER } from "../types";
 
 const initialState = {
     data: [],
+    loading: false,
   };
 
   export default function staticBarReducer(state = initialState, action) {
@@ -11,6 +12,11 @@ const initialState = {
           ...state,
           data: action.payload,
         };
+        case SET_LOADER:
+          return {
+            ...state,
+            loading: action.payload,
+          };
        
       default:
         return state;
